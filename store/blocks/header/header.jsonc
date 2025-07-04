@@ -1,0 +1,167 @@
+{
+  "header": {
+    "blocks": ["header-layout.desktop", "header-layout.mobile"]
+  },
+  "header.full": {
+    "blocks": ["header-layout.desktop", "header-layout.mobile"]
+  },
+  "header-layout.desktop": {
+    "children": [
+       "flex-layout.row#topbar", // topbar
+      "flex-layout.row#3-desktop", // header
+      "sticky-layout#4-desktop"
+    ]
+  },
+
+  // header
+  "flex-layout.row#3-desktop": {
+    "props": {
+      "blockClass": "header-desktop"
+    },
+    "children": [
+      "flex-layout.col#header-left", // espaço vazio
+      "flex-layout.col#header-center", // logo
+      "flex-layout.col#header-right" // search-bar, login, minicart
+    ]
+  },
+
+  // espaço vazio
+  "flex-layout.col#header-left": {
+    "props": {
+      "blockClass": "header-left"
+    },
+    "children": [
+      "flex-layout.col#spacer"
+    ]
+  },
+  "flex-layout.col#spacer": {
+    "props": {
+      "width": "grow"
+    }
+  },
+
+  // logo
+  "flex-layout.col#header-center": {
+    "props": {
+      "blockClass": "header-center"
+    },
+    "children": [
+      "link#logo" // Logo envolvida em H1 para SEO
+    ]
+  },
+
+  // search-bar, login, minicart
+  "flex-layout.col#header-right": {
+    "props": {
+      "blockClass": "header-right"
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+  "sticky-layout#4-desktop": {
+    "props": {
+      "blockClass": "sticky-header"
+    },
+    "children": ["flex-layout.row#4-desktop"]
+  },
+  "flex-layout.row#4-desktop": {
+    "props": {
+      "blockClass": "main-header",
+      "horizontalAlign": "center",
+      "verticalAlign": "center",
+      "preventHorizontalStretch": true,
+      "preventVerticalStretch": true,
+      "fullWidth": true
+    },
+    "children": [
+     
+      "flex-layout.col#category-menu",
+      "search-bar",
+      "locale-switcher",
+      "login",
+      "minicart.v2"
+    ]
+  },
+
+
+   
+
+  "flex-layout.col#category-menu": {
+    "props": {
+      "verticalAlign": "middle"
+    },
+    "children": ["vtex.menu@2.x:menu#category-menu"]
+  },
+
+   // Logo envolvida em H1 para SEO
+   "link#logo": {
+    "children": [
+      "rich-text#logo"
+    ],
+    "props": {
+      "blockClass": "logoh1",
+      "href": "/"
+    }
+  },
+
+  "rich-text#logo": {
+    "props": {
+      "text": "# ![image](assets/images/logo.svg)",
+      "blockClass": "logoh1"
+    },
+    "title": "Logo"
+  },
+  
+  "header-layout.mobile": {
+    "children": ["sticky-layout#1-mobile"]
+  },
+  "sticky-layout#1-mobile": {
+    "children": ["flex-layout.row#1-mobile"]
+  },
+  "flex-layout.row#1-mobile": {
+    "children": [
+      "drawer",
+      "logo#mobile",
+      "login",
+      "minicart.v2"
+    ],
+    "props": {
+      "blockClass": "main-header-mobile",
+      "preventHorizontalStretch": true,
+      "preserveLayoutOnMobile": true,
+      "fullWidth": true
+    }
+  },
+  "drawer": {
+    "children": ["menu#drawer"]
+  },
+
+  "menu#drawer": {
+    "children": [
+      "menu-item#category-apparel",
+      "menu-item#category-home",
+      "menu-item#more"
+    ],
+    "props": {
+      "orientation": "vertical"
+    }
+  },
+
+  "logo#mobile": {
+    "props": {
+      "title": "Logo",
+      "href": "/",
+      "url": "https://storecomponents.vteximg.com.br/arquivos/store-theme-logo-mobile.png",
+      "width": "77.5",
+      "height": "27.5"
+    }
+  }
+}
